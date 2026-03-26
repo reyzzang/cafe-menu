@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cafe Menu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Language Switch -->
+  <div class="language-switch">
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('ka')">KA</button>
+    <button onclick="setLang('ru')">RU</button>
+  </div>
+
+  <!-- Cafe Name -->
+  <h1 id="title">Cafe Menu</h1>
+
+  <!-- Coffee Section -->
+  <div class="section">
+    <h2 id="coffee-title">Coffee</h2>
+
+    <div class="item">
+      <span id="americano">Americano</span>
+      <span>6 GEL</span>
+    </div>
+
+    <div class="item">
+      <span id="latte">Latte</span>
+      <span>8 GEL</span>
+    </div>
+  </div>
+
+  <!-- Desserts Section -->
+  <div class="section">
+    <h2 id="dessert-title">Desserts</h2>
+
+    <div class="item">
+      <span id="cake">Chocolate Cake</span>
+      <span>10 GEL</span>
+    </div>
+
+    <div class="item">
+      <span id="donut">Donut</span>
+      <span>5 GEL</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
