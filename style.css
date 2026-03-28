@@ -1,36 +1,112 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 20px;
-  background-color: #f7f7f7;
+  background: #0f0f0f;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+/* HERO */
+.hero {
+  background: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836") center/cover;
+  height: 300px;
+}
+
+.overlay {
+  background: rgba(0,0,0,0.6);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  letter-spacing: 1px;
+}
+
+p {
+  color: #ccc;
+}
+
+/* INFO CARD */
+.info-card {
+  margin: -40px auto 20px;
+  width: 90%;
+  max-width: 500px;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
   text-align: center;
+  border: 1px solid #ffaa00;
 }
 
-.language-switch {
-  text-align: center;
-  margin-bottom: 20px;
+.info-card p {
+  margin: 5px 0;
 }
 
-.language-switch button {
-  margin: 5px;
-  padding: 10px;
-  font-size: 14px;
-  cursor: pointer;
+/* SEARCH */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
 }
 
-.section {
-  background: white;
+#search {
+  width: 90%;
+  max-width: 500px;
   padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 10px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  background: #1a1a1a;
+  color: white;
+  outline: none;
+  box-shadow: 0 0 15px rgba(255,170,0,0.3);
+}
+
+/* MENU */
+.menu {
+  padding: 15px;
+}
+
+/* SECTIONS */
+.section {
+  background: #1a1a1a;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.section:hover {
+  transform: scale(1.02);
+}
+
+.section h2 {
+  font-family: 'Playfair Display', serif;
+  padding: 15px;
+  margin: 0;
+  color: #ffaa00;
+}
+
+/* ITEMS (COLLAPSIBLE) */
+.items {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.section.active .items {
+  max-height: 300px;
 }
 
 .item {
   display: flex;
   justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px solid #ddd;
+  padding: 10px 15px;
+  border-top: 1px solid #333;
 }
