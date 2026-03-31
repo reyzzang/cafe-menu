@@ -67,6 +67,10 @@ p {
   box-shadow: 0 0 15px rgba(255,170,0,0.3);
 }
 
+#search::placeholder {
+  color: #888;
+}
+
 /* MENU */
 .menu {
   padding: 15px;
@@ -79,11 +83,16 @@ p {
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 .section:hover {
   transform: scale(1.02);
+}
+
+.section:active {
+  transform: scale(0.98);
 }
 
 .section h2 {
@@ -93,7 +102,7 @@ p {
   color: #ffaa00;
 }
 
-/* ITEMS (COLLAPSIBLE) */
+/* ITEMS */
 .items {
   max-height: 0;
   overflow: hidden;
@@ -101,7 +110,7 @@ p {
 }
 
 .section.active .items {
-  max-height: 300px;
+  max-height: 100vh;
 }
 
 .item {
@@ -109,4 +118,10 @@ p {
   justify-content: space-between;
   padding: 10px 15px;
   border-top: 1px solid #333;
+}
+
+/* FUTURE IMAGE SAFETY */
+img {
+  max-width: 100%;
+  display: block;
 }
