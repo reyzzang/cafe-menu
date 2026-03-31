@@ -1,39 +1,38 @@
-// HANDLE SECTION TOGGLE (replaces onclick)
-document.querySelectorAll(".section").forEach(section => {
-  section.addEventListener("click", () => {
-    section.classList.toggle("active");
-  });
-});
-
-// SEARCH WITH DEBOUNCE (smooth + fast)
+const sections = document.querySelectorAll(".section");
 const searchInput = document.getElementById("search");
 
-let timeout = null;
+// Toggle sections and save state
+sections.forEach((section, index) => {
+  section.addEventListener("click", () => {
+    section.classList.toggle("active");
+    localStorage.setItem("section-" + index, section.classList.contains("active"));
+  });
 
-searchInput.addEventListener("input", () => {
-  clearTimeout(timeout);
-  timeout = setTimeout(searchMenu, 200);
+  // Restore state
+  if (localStorage.getItem("section-" + index) === "true") {
+    section.classList.add("active");
+  }
 });
 
-// SEARCH LOGIC
-function searchMenu() {
+// SEARCH FUNCTION
+searchInput.addEventListener("keyup", () => {
   const input = searchInput.value.toLowerCase();
-  const sections = document.querySelectorAll(".section");
+  let anyMatch = false;
 
-  sections.forEach(section => {
+  sections.forEach((section, index) => {
     const title = section.querySelector("h2").textContent.toLowerCase();
     const items = section.querySelectorAll(".item");
-
     let match = title.includes(input);
 
-    for (let item of items) {
-      if (item.textContent.toLowerCase().includes(input)) {
-        match = true;
-        break;
-      }
-    }
+    items.forEach(item => {
+      if (item.textContent.toLowerCase().includes(input)) match = true;
+    });
 
     section.style.display = match ? "block" : "none";
     section.classList.toggle("active", match);
+
+    if (match) anyMatch = true;
   });
-}
+
+  document.getElementById("no-results").style.display = anyMatch ? "none" : "block";
+});
